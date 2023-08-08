@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,9 +31,11 @@ A Rota é basicamente a rota que vai guiar alguma requisição HTTP
 
 */
 
+/*
 Route::get('/empresa', function () {
     return view('site/empresa');
 });
+*/
 
 
 
@@ -64,3 +67,122 @@ Route::get('/produto3/{id?}/{mail?}',function($id='',$mail=''){
 
     return "O id do produto é: ".$id." e o e-mail é: ".$mail;
 });  
+
+//No seguinte exemplo vemos um redirecionamento da maneira simples ( A rota "sobre" vai redirecionar para rota "empresa")
+Route::get('/sobre',function(){
+
+    return redirect('/empresa');
+
+});
+
+//No seguinte exemplo vemos um redirecionamento porém de maneira mais simples  
+Route::redirect('/sobre2', '/empresa');
+
+
+//Maneira mais simples de renderizar uma view
+Route::view('/empresa','site/empresa');
+
+
+//Neste exemplo vemos a atribuição com o método name para a rota news 
+Route::get('/news',function(){
+
+     return view('news');
+
+})->name('noticias');
+
+//Neste exemplo vemos um redirect utilizando o método route com o nome de noticias que é atribuição do método news 
+Route::get('/novidades',function(){
+
+     return redirect()->route('noticias');
+
+});
+
+/*
+
+//Neste exemplo a seguir vemos as rotas sendo agrupadas em um  grupo com o prefixo "admim"
+Route::prefix('admin')->group (function(){
+
+    Route::get('admin/dashboard',function(){
+
+        return "dashboard";
+   
+   })->name('dashboard');
+   
+   Route::get('admin/users',function(){
+   
+       return "users";
+   
+   })->name('users');
+   
+   Route::get('admin/cliente',function(){
+   
+       return "cliente";
+   
+   })->name('cliente');
+
+
+});
+
+*/
+
+//Está redirecionando para o gruipo organizado pelo método nome 
+Route::get('/link', function () {
+
+  return redirect()->route('admin.dashboard');
+    
+});
+
+/*
+
+//Neste exemplo a seguir vemos as rotas sendo agrupadas em um  grupo com o name"admin."
+Route::name('admin.')->group(function(){
+
+    Route::get('admin/dashboard',function(){
+
+        return "dashboard";
+   
+   })->name('dashboard');
+   
+   Route::get('admin/users',function(){
+   
+       return "users";
+   
+   })->name('users');
+   
+   Route::get('admin/cliente',function(){
+   
+       return "cliente";
+   
+   })->name('cliente');
+
+});
+
+*/
+
+//Grupo organizado por prefixos e nomes
+Route::group(['prefix'=>'admin',
+               'as'=> 'admin.'
+
+], function(){
+
+    Route::get('dashboard',function(){
+
+        return "dashboard";
+        
+    })->name('dashboard');
+
+    Route::get('users',function(){
+
+        return 'users';
+
+    })->name('users');
+
+    Route::get('clientes',function(){
+
+        return 'clientes';
+
+    })->name('clientes');
+
+});
+
+
