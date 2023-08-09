@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProdutoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Está é uma rota que leva a um controller
+Route::get('/', [ProdutoController::class,'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//***NOTA**** para criar um controle é necessário um comando no terminal " php artisan make:controller *nome do controller*
 
 
 /*
@@ -35,7 +36,7 @@ A Rota é basicamente a rota que vai guiar alguma requisição HTTP
 Route::get('/empresa', function () {
     return view('site/empresa');
 });
-*/
+
 
 
 
@@ -124,7 +125,7 @@ Route::prefix('admin')->group (function(){
 });
 
 */
-
+/*
 //Está redirecionando para o gruipo organizado pelo método nome 
 Route::get('/link', function () {
 
@@ -159,6 +160,8 @@ Route::name('admin.')->group(function(){
 
 */
 
+
+/*
 //Grupo organizado por prefixos e nomes
 Route::group(['prefix'=>'admin',
                'as'=> 'admin.'
@@ -185,4 +188,5 @@ Route::group(['prefix'=>'admin',
 
 });
 
+*/
 //Olá
