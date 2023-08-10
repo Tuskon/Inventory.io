@@ -12,4 +12,11 @@ class ProdutoController extends Controller
 
         return "index";
     }
+
+
+    public function show($id=''){
+
+        return "O id do produto é: ".$id;
+
+    }
 }

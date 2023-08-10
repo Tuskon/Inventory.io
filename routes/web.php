@@ -15,7 +15,9 @@ use App\Http\Controllers\ProdutoController;
 */
 
 //Está é uma rota que leva a um controller
-Route::get('/', [ProdutoController::class,'index']);
+Route::get('/', [ProdutoController::class,'index'])->name('produto.index');
+
+Route:: get ('/produto/{id?}', [ProdutoController::class,'show'])->name('produto.show');
 
 //***NOTA**** para criar um controle é necessário um comando no terminal " php artisan make:controller *nome do controller*
 
