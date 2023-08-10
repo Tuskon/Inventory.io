@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProdutoController;
+
+use App\Http\Controllers\ProjetoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,8 @@ Route:: get ('/produto/{id?}', [ProdutoController::class,'show'])->name('produto
 
 //***NOTA**** para criar um controle é necessário um comando no terminal " php artisan make:controller *nome do controller*
 
+//Rota com o método Resource que eu não sei muito pois são 22:49 da noite e você trabalhou desde as 7:35 da manhã
+Route::resource('projeto', ProjetoController::class);
 
 /*
 
