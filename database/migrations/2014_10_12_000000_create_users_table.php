@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
+     * Basicamente migrations não sei bem oque é masssss para fazer elas no laravel deve utilizar o comando php artisan migrate
+     * E para desfazer deve utilizar o php artisan rollback
+     * E para ver o status de uma migration deve usar o comando php artisan migrate:status
+     * E para criar uma migration sendo uma tabela deve usar o comando php artisan make:migration create_*nome da tabela*_table
+     * O seguinte comando do laravel * Schema::rename('produtos','produtos_trocados'); * renomeia uma  tabela
+     * O seguinte comando do laravel * Schema::dropIfExists('produtos_trocados'); * derruba uma  tabela
      * Run the migrations.
      */
     public function up(): void
