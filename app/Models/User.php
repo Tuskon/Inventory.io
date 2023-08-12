@@ -35,7 +35,10 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast.
-     *
+     *Para criar um model basta usar o comando php artisan make:model Produto
+     * 
+     * 
+     * 
      * @var array<string, string>
      */
     protected $casts = [
