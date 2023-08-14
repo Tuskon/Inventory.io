@@ -13,7 +13,7 @@ class ProjetoController extends Controller
      //Este comando cria um controller com vários métodos pré-configurados php artisan make:controller ProjetoController --resource
     public function index()
     {
-        return "Manpulação de Banco de Dados sendo feita...";
+        return "Manipulação de Banco de Dados sendo feita...";
     }
 
     /**
